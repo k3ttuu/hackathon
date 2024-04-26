@@ -299,7 +299,7 @@ function displayQuiz() {
                 "BCE": "resultsdetective.jpg",
                 "BCF": "resultsspider.jpg",
                 "BDE": "resultscheapskate.jpg",
-                "BDF": "resultsthrifter.jpg.png",
+                "BDF": "resultsthrifter2.jpg.png",
             };
             return MBTIImageUrls[mbtiTypeString] || ""
         }
