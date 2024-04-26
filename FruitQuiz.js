@@ -1,107 +1,133 @@
 function displayQuiz() {
     const questions = [
         {
-            question: "You've been mysteriously invited to an unfamiliar realm known as Fruitville, accessible only within your dreams. The invitation expires tonight.",
-            choices: ["I don't know, seems risky", "Sounds fun, let's go on an adventure"],
+            question: "You’ve just opened the Carousell app and you’re excited to start shopping. What’s the first thing you do?",
+            choices: ["Let’s take a look at what categories there are", "I already know what I want to get!!"],
             weights: [
-                {judgingScore: +3, perceivingScore: 0 }, // Weight for first choice
-                {perceivingScore: +1, judgingScore:0 }, // Weight for second choice
+               // {judgingScore: +3, perceivingScore: 0 }, // Weight for first choice
+              //  {perceivingScore: +1, judgingScore:0 }, // Weight for second choice
+                {thrifter: +1, collector: +1 }, // Weight for first choice
+                {kanchiong: +1}, // Weight for second choice
             ]
         },
         {
-            question: "You drift into a deep slumber after a long day. All of a sudden, the sweet scent of fruits start to fill the air.",
-            choices: ["Where is the smell coming from?", "Am I in Fruitville"],
+            question: "You tapped onto the filter function on Carousell, what would you filter first?",
+            choices: ["The price", "The condition"],
             weights: [
-                {thinkingScore: +1, feelingScore: 0 }, // Weight for first choice
-                {feelingScore: +3, thinkingScore: 0 } // Weight for second choice
+               //{thinkingScore: +1, feelingScore: 0 }, // Weight for first choice
+                //{feelingScore: +3, thinkingScore: 0 } // Weight for second choice 
+                {thrifter: +0, collector: +0 }, // Weight for first choice
+                {kanchiong: +0}, // Weight for second choice
             ]
         },
         {
-            question: "You open your eyes and see that you’re in Fruitville. It’s a sunny morning in Fruitville and fruits are getting ready to start their day. An apple approaches you...",
-            choices: ["This is crazy, I’m dreaming for sure!", "I wonder if there will be any new fruits"],
+            question: "You find an item you love, but it’s a little over your budget.",
+            choices: ["I hope the seller is open to negotiations…", "I’ll just get it even if the seller doesn't do negotiations"],
             weights: [
-                {intuitionScore: +3, sensingScore: 0 } , // Weight for first choice
-                {sensingScore: +1, intuitionScore: 0 } , // Weight for second choice
+               // {intuitionScore: +3, sensingScore: 0 } , // Weight for first choice
+               // {sensingScore: +1, intuitionScore: 0 } , // Weight for second choice
+                {thrifter: +1, cheapskate: +2 } , // Weight for first choice
+                {angel: +1, collector: +2 } , // Weight for second choice
             ]
         },
         {
-            question: "The apple introduces itself as the Mayor of Fruitville.  “Will you be joining us for the FruitFest at noon? It’s an event meant to welcome newcomers and tourists. And yes, there will be plenty of food!",
-            choices: ["“Of course!”", "“I’ll think about it..”"],
+            question: "As you scroll through, you see some sellers listing free items.",
+            choices: ["Let’s check out what they’re selling!", "Nah… not my thing"],
             weights: [
-                {perceivingScore: +1, judgingScore: 0 } , // Weight for first choice
-                {judgingScore: +3, perceivingScore: 0 }, // Weight for second choice
+                //{perceivingScore: +1, judgingScore: 0 } , // Weight for first choice
+                //{judgingScore: +3, perceivingScore: 0 }, // Weight for second choice
+                {thrifter: +2, cheapskate: +1, angel: +1 } , // Weight for first choice
+                {kanchiong: +0},// Weight for second choice
             ]
         },
         {
-            question: "As you finish your conversation with the Mayor, you can't help but wonder..",
-            choices: ["What food will there be?", "Do fruits eat fruits?"],
+            question: "Oh hey, there’s this seller selling something i’ve been looking for! But the price is quite steep and he / she is not open to negotiations.",
+            choices: ["Money is not an issue! I’ll ‘like’ the listing!", "I don’t think I’ll get it them :<"],
             weights: [
-                {sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
-                {intuitionScore: +3, sensingScore: 0 } , // Weight for second choice
+                //{sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
+                //{intuitionScore: +3, sensingScore: 0 } , // Weight for second choice
+                {collector: +2} , // Weight for first choice
+                {kanchiong: +0}
             ]
         },
         {
-            question:"While wandering Fruitville, you notice nobody questioning a human among the fruits. Looking down, you see your limbs, but realize fruits also have their own…",
-            choices: ["Am I still a human?", "Am I a fruit?"],
+            question:"Two sellers are selling the same thing! Which would you get?",
+            choices: ["The brand new item, but more expensive", "The used item, but cheaper"],
             weights: [
-                {thinkingScore: +1, feelingScore: 0 } , // Weight for first choice
-                {feelingScore: +3, thinkingScore: 0 } , // Weight for second choice
+                //{thinkingScore: +1, feelingScore: 0 } , // Weight for first choice
+                //{feelingScore: +3, thinkingScore: 0 } , // Weight for second choice
+                {angel: +1} , // Weight for first choice
+                {thrifter: +1, cheapskate: +2 } , // Weight for second choice
             ]
         },
         {
-            question:"As you stroll along,  your stomach starts to rumble. At that moment, the town clock rings for noon and you decide to head for the FruitFest",
-            choices: ["I’ll make sure to bring some cash for the food stalls", "I can’t wait to explore the culture of Fruitville"],
+            question:"OMG! This item seems like a good steal and there’s no defects!",
+            choices: ["Let’s double check the listing details before purchasing", "Buy NOW!"],
             weights: [
-                {sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
-                {intuitionScore: +3, sensingScore: 0 } , // Weight for intuition 
+                //{sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
+                //{intuitionScore: +3, sensingScore: 0 } , // Weight for intuition 
+                {scaredy: +1} , // Weight for first choice
+                {kanchiong: +1} , // Weight for intuition 
             ]
         },
         {
-            question:"You’ve enjoyed your time at the FruitFest, but your time at Fruitville is coming to an end. How do you want to spend your last few minutes at Fruitville?",
-            choices: ["I need some time alone to process", "I want to socialize and make the most of my visit"],
+            question:"Before you knew it, you’ve already spent an hour on Carousell! You’ve many ‘liked’ listings, what do you do?",
+            choices: ["Get them ASAP before they’re gone!!", "I’ll need to think about it…"],
             weights: [
-                {introvertScore: +1, extrovertScore: 0 } , // Weight for first choice
-                {extrovertScore: +3, introvertScore: 0 } , // Weight for second choice
+                //{introvertScore: +1, extrovertScore: 0 } , // Weight for first choice
+                {kanchiong: +2} , // Weight for first choice
+                {kanchiong: +0}
             ]
         },
         {
-            question:"As you prepare to leave Fruitville, the Mayor expresses gratitude for visiting and tells you that your FruitCard will arrive in the mail soon.",
-            choices: ["Finally! That was a strange experience", "Was I a fruit the entire? I feel so confused"],
+            question:"Oh? What’s this buy button thingy?",
+            choices: ["Let’s use it!", "Nah doesn’t seem safe… I’ll stick to the old way of buying things"],
             weights: [
-                {thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
-                {feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
+                //{thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
+                //{feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
+                {} , // Weight for first choice
+                {scaredy: +2} , // Weight for second choice
+                {kanchiong: +0},
             ]
         },
         {
-            question:"While you slowly drift back to reality, memories of your time in Fruitville flood your mind.",
-            choices: ["I can’t stop thinking about the details of what happened", "I feel bittersweet and reminisce about my experience"],
+            question:"It’s time to pay, what payment methods would you use?",
+            choices: ["Online payment methods", "I want to meet up! It’s safer"],
             weights: [
-                {thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
-                {feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
+                //{thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
+                //{feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
+                {kanchiong: +0} , // Weight for first choice
+                {scaredy: +2} , // Weight for second choice
             ]
         },
         {
-            question:"You awaken from your nap on the couch and see that it’s almost time for dinner. Just then, you get a message from a friend asking you to join them for dinner.",
-            choices: ["Let’s go! I need to tell a friend about my dream", "Have dinner at home and relax instead"],
+            question:"Yay! Your purchase is confirmed!",
+            choices: ["I wonder when the seller will ship my item…", "Time to sit back and wait for my item to arrive!"],
             weights: [
-                {extrovertScore: +3, introvertScore: 0 } , // Weight for first choice
-                {introvertScore: +1, extrovertScore: 0 } , // Weight for second choice
+                //{extrovertScore: +3, introvertScore: 0 } , // Weight for first choice
+                //{introvertScore: +1, extrovertScore: 0 } , // Weight for second choice
+                {kanchiong: +1} , // Weight for first choice
+                {angel: +1} , // Weight for second choice
             ]
         },
         {
-            question:"The next day you hear a ring at your door, your FruitCard has arrived with a letter that says I’m welcome to visit again.",
-            choices: ["I’m already ready to visit again!", "I’ll think about visiting again"],
+            question:"You’ve received your item and it’s exactly what you wanted!",
+            choices: ["I’ll leave a review for the seller", "Time to search for my next buy!"],
             weights: [
-                {perceivingScore: +3, judgingScore: 0 } , // Weight for first choice
-                {judgingScore: +1, perceivingScore: 0 } , // Weight for second choice
+                //{extrovertScore: +3, introvertScore: 0 } , // Weight for first choice
+                //{introvertScore: +1, extrovertScore: 0 } , // Weight for second choice
+                {angel: +2} , // Weight for first choice
+                {kanchiong: +0}
             ]
         },
         {
-            question: "Processing your FruitCard...",
-            choices: ["Collect my Fruitcard!"],
+            question: "Processing your Personality Type...",
+            choices: ["Click to reveal!"],
             weights: [
-                {extrovertScore: 0, introvertScore: 0 }, // laceholder
-                {introvertScore: 0, extrovertScore: 0}, //Placeholder
+                //{extrovertScore: 0, introvertScore: 0 }, // laceholder
+                //{introvertScore: 0, extrovertScore: 0}, //Placeholder
+                {angel: 0, thrifter: 0 }, // laceholder
+                {thrifter: 0, angel: 0}, //Placeholder
             ]
         },
     ]
@@ -117,23 +143,29 @@ function displayQuiz() {
     let intuitionScore = 0;
     let thinkingScore = 0;
     let feelingScore = 0;
+    let thrifter = 0
+    let angel = 0
+    let cheapskate = 0
+    let kanchiong = 0
+    let scaredy = 0
+    let collector = 0
 
 
     function displayQuestionImage(questionIndex) {
         const imageURLs = [
-            "Q1.png",
-            "Q2.png",
-            "Q3.png",
-            "Q4.png",
-            "Q5.png",
-            "Q6.png",
-            "Q7.png",
-            "Q8.png",
-            "Q9.png",
-            "Q10.png",
-            "Q11.png",
-            "Q12.png",
-            "processing.GIF",
+            "qn1graphic.png",
+            "qn2graphic.png",
+            "qn3graphic.png",
+            "qn4graphic.png",
+            "qn5graphic.png",
+            "qn6graphic.png",
+            "qn7graphic.png",
+            "qn8graphic.png",
+            "qn9graphic.png",
+            "qn10graphic.png",
+            "qn11graphic.png",
+            "qn12graphic.png",
+            "loadingpage.GIF",
         ];
         const questionImageElement = document.getElementById('question-image');
         questionImageElement.src = imageURLs[questionIndex];
@@ -195,30 +227,25 @@ function displayQuiz() {
         console.log("Selected choice weight:", selectedChoiceWeight);
 
                 //Update scores based on weight of selected choice
-                if (selectedChoiceWeight.hasOwnProperty('introvertScore')) {
-                    introvertScore += selectedChoiceWeight.introvertScore;
+                if (selectedChoiceWeight.hasOwnProperty('thrifter')) {
+                    thrifter += selectedChoiceWeight.thrifter;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('extrovertScore')) {
-                    extrovertScore += selectedChoiceWeight.extrovertScore;
+                if (selectedChoiceWeight.hasOwnProperty('collector')) {
+                    collector += selectedChoiceWeight.collector;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('judgingScore')) {
-                    judgingScore += selectedChoiceWeight.judgingScore;
+                if (selectedChoiceWeight.hasOwnProperty('kanchiong')) {
+                    kanchiong += selectedChoiceWeight.kanchiong;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('perceivingScore')) {
-                    perceivingScore += selectedChoiceWeight.perceivingScore;
+                if (selectedChoiceWeight.hasOwnProperty('scaredy')) {
+                    scaredy += selectedChoiceWeight.scaredy;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('sensingScore')) {
-                    sensingScore += selectedChoiceWeight.sensingScore;
+                if (selectedChoiceWeight.hasOwnProperty('cheapskate')) {
+                    cheapskate += selectedChoiceWeight.cheapskate;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('intuitionScore')) {
-                    intuitionScore += selectedChoiceWeight.intuitionScore;
+                if (selectedChoiceWeight.hasOwnProperty('angel')) {
+                    angel += selectedChoiceWeight.angel;
                 }
-                if (selectedChoiceWeight.hasOwnProperty('thinkingScore')) {
-                    thinkingScore += selectedChoiceWeight.thinkingScore;
-                }
-                if (selectedChoiceWeight.hasOwnProperty('feelingScore')) {
-                    feelingScore += selectedChoiceWeight.feelingScore;
-                }
+
 
             //Move to the next question
             currentQuestionIndex++;
@@ -234,15 +261,14 @@ function displayQuiz() {
     //Function to calculate MBTI type based on scores and display image
     function calculateMBTITypeAndDisplayImage() {
         //Calculate introvert/extrovert dimension
-        const introextro = introvertScore > extrovertScore ? "I" :"E";
+        const angelcheapskate = angel >= cheapskate ? "A" :"B";
         //Calculate sensing/intuition dimension
-        const sensint = sensingScore > intuitionScore ? "S" : "N";
+        const collectorthrifter = collector >= thrifter ? "C" : "D";
         //Calculate thinking/feeling dimension
-        const thinkfeel = thinkingScore > feelingScore ? "T" : "F";
+        const scaredyspider= scaredy >= kanchiong ? "E" : "F";
         //Calculate judging/perceiving dimension
-        const judgeper = judgingScore > perceivingScore ? "J" : "P";
         //Produce MBTI type string
-        const mbtiTypeString = introextro + sensint + thinkfeel + judgeper;
+        const mbtiTypeString = angelcheapskate + collectorthrifter + scaredyspider
 
         console.log("MBTI Type:", mbtiTypeString);
 
@@ -252,7 +278,7 @@ function displayQuiz() {
         const questionElement = document.getElementById('question');
         const choiceContainers = document.getElementById('choices');
         const quizContainer = document.getElementById('quiz');
-        const thumbnailImage = document.querySelector('img[src="Thumbnail.gif"]');
+        const thumbnailImage = document.querySelector('img[src="caroubuyer.png"]');
         questionElement.remove();
         choiceContainers.remove();
         quizContainer.remove();
@@ -266,22 +292,14 @@ function displayQuiz() {
     //Function to calculate MBTI type and return image URL 
         function getMBTIImageUrl(mbtiTypeString) {
             const MBTIImageUrls = {
-                "ENTJ": "Lemon.png",
-                "INTJ": "Pomegranate.png", 
-                "ENTP": "Dragon Fruit.png",
-                "INTP": "Grape.png",
-                "ENFJ": "Peach.png",
-                "INFJ": "Fig.png",
-                "ENFP": "Watermelon.png",
-                "INFP": "Coconut.png",
-                "ESFJ": "Orange.png",
-                "ISFJ": "Apple.png",
-                "ESTJ": "Banana.png",
-                "ISTJ": "Pear.png",
-                "ESTP": "Pineapple.png",
-                "ISTP": "Coconut.png",
-                "ESFP": "Mango.png",
-                "ISFP": "Strawberry.png",
+                "ACE": "resultsangel.jpg",
+                "ACF": "resultsdetective.jpg", 
+                "ADE": "resultscat.jpg",
+                "ADF": "resultsangel.jpg",
+                "BCE": "resultsdetective.jpg",
+                "BCF": "resultsspider.jpg",
+                "BDE": "resultscheapskate.jpg",
+                "BDF": "resultsthrifter.jpg.png",
             };
             return MBTIImageUrls[mbtiTypeString] || ""
         }
