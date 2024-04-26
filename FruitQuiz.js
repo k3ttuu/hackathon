@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     backButton.addEventListener('click', function() {
         // Redirect to the home page or perform any other action you want
-        window.location.href = 'https://gudetea.github.io/FruitCard-Odyssey/'; // Replace 'home.html' with the actual URL of your home page
+        window.location.href = 'https://k3ttuu.github.io/carou/'; // Replace 'home.html' with the actual URL of your home page
     });
 });
 
