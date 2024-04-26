@@ -32,7 +32,7 @@ function displayQuiz() {
         },
         {
             question: "As you scroll through, you see some sellers listing free items.",
-            choices: ["Let’s check out what they’re selling!", "Nah… not my thing"],
+            choices: ["Let’s check out what they have!", "Nah… not my thing"],
             weights: [
                 //{perceivingScore: +1, judgingScore: 0 } , // Weight for first choice
                 //{judgingScore: +3, perceivingScore: 0 }, // Weight for second choice
@@ -165,7 +165,7 @@ function displayQuiz() {
             "qn10graphic.png",
             "qn11graphic.png",
             "qn12graphic.png",
-            "loadingpage.GIF",
+            "loadingpage.gif",
         ];
         const questionImageElement = document.getElementById('question-image');
         questionImageElement.src = imageURLs[questionIndex];
