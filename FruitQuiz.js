@@ -1,8 +1,8 @@
 function displayQuiz() {
     const questions = [
         {
-            question: "You’ve just opened the Carousell app and you’re excited to start shopping. What’s the first thing you do?",
-            choices: ["Let’s take a look at what categories there are", "I already know what I want to get!!"],
+            question: "You have just started your job at a kindergarten. What is the first activity you do with the class?",
+            choices: ["Take time to observe the children interacting and join in their play", "Come up with a detailed lesson plan!!"],
             weights: [
                // {judgingScore: +3, perceivingScore: 0 }, // Weight for first choice
               //  {perceivingScore: +1, judgingScore:0 }, // Weight for second choice
@@ -11,8 +11,8 @@ function displayQuiz() {
             ]
         },
         {
-            question: "You tapped onto the filter function on Carousell, what would you filter first?",
-            choices: ["The price", "The condition"],
+            question: "It’s time to introduce yourself to the students!",
+            choices: ["Let’s do a straightforward introduction", "Let’s get them to play an icebreaker game!"],
             weights: [
                //{thinkingScore: +1, feelingScore: 0 }, // Weight for first choice
                 //{feelingScore: +3, thinkingScore: 0 } // Weight for second choice 
@@ -21,8 +21,9 @@ function displayQuiz() {
             ]
         },
         {
-            question: "You find an item you love, but it’s a little over your budget.",
-            choices: ["I hope the seller is open to negotiations…", "I’ll just get it even if the seller doesn't do negotiations"],
+            question: "The kid is rowdy and you want to calm him / her down, what do you do?",
+            choices: ["Offer them a task with a physical component (helping carry something, moving chairs) to redirect their attention", 
+            "Give them two acceptable options (eg. helping to keep toys or draw a picture) and praise their efforts when they cooperate."],
             weights: [
                // {intuitionScore: +3, sensingScore: 0 } , // Weight for first choice
                // {sensingScore: +1, intuitionScore: 0 } , // Weight for second choice
@@ -31,8 +32,8 @@ function displayQuiz() {
             ]
         },
         {
-            question: "As you scroll through, you see some sellers listing free items.",
-            choices: ["Let’s check out what they have!", "Nah… not my thing"],
+            question: "There is a kid who seems withdrawn during an activity, how would you tackle this situation",
+            choices: ["Sit near them during the activity, without pressuring interaction.", "Pair them with a friendly child for a short activity"],
             weights: [
                 //{perceivingScore: +1, judgingScore: 0 } , // Weight for first choice
                 //{judgingScore: +3, perceivingScore: 0 }, // Weight for second choice
@@ -41,8 +42,9 @@ function displayQuiz() {
             ]
         },
         {
-            question: "Oh hey, there’s this seller selling something i’ve been looking for! But the price is quite steep and he / she is not open to negotiations.",
-            choices: ["Money is not an issue! I’ll ‘like’ the listing!", "I don’t think I’ll get it them :<"],
+            question: "The class is noisy, how would you grab their attention?",
+            choices: ["Start speaking very quietly, encouraging children to get quieter to hear you. Make it a playful challenge", 
+            "Have a pre-established signal that means Time to listen."],
             weights: [
                 //{sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
                 //{intuitionScore: +3, sensingScore: 0 } , // Weight for second choice
@@ -51,8 +53,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"Two sellers are selling the same thing! Which would you get?",
-            choices: ["The brand new item, but more expensive", "The used item, but cheaper"],
+            question:"Yay there’s some free time for activities, what would you let the kids do?",
+            choices: ["Go for outdoor play", "Do arts and crafts!"],
             weights: [
                 //{thinkingScore: +1, feelingScore: 0 } , // Weight for first choice
                 //{feelingScore: +3, thinkingScore: 0 } , // Weight for second choice
@@ -61,8 +63,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"OMG! This item seems like a good steal and there’s no defects!",
-            choices: ["Let’s double check the listing details before purchasing", "Buy NOW!"],
+            question:"A child falls and scrapes their knee. They're crying and need comfort.",
+            choices: ["Offer soothing words and a space to calm down", "Distract them with a toy while providing comfort"],
             weights: [
                 //{sensingScore: +1, intuitionScore: 0 } , // Weight for first choice
                 //{intuitionScore: +3, sensingScore: 0 } , // Weight for intuition 
@@ -71,8 +73,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"Before you knew it, you’ve already spent an hour on Carousell! You’ve many ‘liked’ listings, what do you do?",
-            choices: ["Get them ASAP before they’re gone!!", "I’ll need to think about it…"],
+            question:"A child comes to school visibly tired and mentions they didn't sleep well because their parents were arguing.",
+            choices: ["Reach out to the child directly and ask what’s going", "Subtly bring up the incident to the child’s parents to find out more "],
             weights: [
                 //{introvertScore: +1, extrovertScore: 0 } , // Weight for first choice
                 {kanchiong: +2} , // Weight for first choice
@@ -80,8 +82,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"Oh? What’s this buy button thingy?",
-            choices: ["Let’s use it!", "Nah doesn’t seem safe… I’ll stick to the old way of buying things"],
+            question:"It's snack time, and children are expected to open their own packages and clean up after themselves. Some need assistance.",
+            choices: ["Pair children who are independent with those needing help, fostering peer support", "Demonstrate opening packages step-by-step, offering positive encouragement for each attempt"],
             weights: [
                 //{thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
                 //{feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
@@ -91,8 +93,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"It’s time to pay, what payment methods would you use?",
-            choices: ["Online payment methods", "I want to meet up! It’s safer"],
+            question:"During a letter-recognition activity, you notice a child struggling to identify basic shapes and sounds.",
+            choices: ["Use textured letters, draw letters in sand, or form them with play dough to engage different senses.", "Play sound/letter matching games with visuals to make it fun."],
             weights: [
                 //{thinkingScore: +3, feelingScore: 0 } , // Weight for first choice
                 //{feelingScore: +1, thinkingScore: 0 } , // Weight for second choice
@@ -101,8 +103,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"Yay! Your purchase is confirmed!",
-            choices: ["I wonder when the seller will ship my item…", "Time to sit back and wait for my item to arrive!"],
+            question:"You have 15 minutes of extra time after your lesson. What do you do?",
+            choices: ["Revisit a song, game, or concept from the lesson in a new way.", "We have time for another short activity!"],
             weights: [
                 //{extrovertScore: +3, introvertScore: 0 } , // Weight for first choice
                 //{introvertScore: +1, extrovertScore: 0 } , // Weight for second choice
@@ -111,8 +113,8 @@ function displayQuiz() {
             ]
         },
         {
-            question:"You’ve received your item and it’s exactly what you wanted!",
-            choices: ["I’ll leave a review for the seller", "Time to search for my next buy!"],
+            question:"It’s time to go home, Children are boarding the bus. One child realizes their usual bus partner is absent. They're getting anxious and refusing to get on.",
+            choices: ["Pair them with another friendly child on the bus", "Reassure them that their bus partner is absent and will be back soon"],
             weights: [
                 //{extrovertScore: +3, introvertScore: 0 } , // Weight for first choice
                 //{introvertScore: +1, extrovertScore: 0 } , // Weight for second choice
@@ -121,8 +123,8 @@ function displayQuiz() {
             ]
         },
         {
-            question: "Processing your Personality Type...",
-            choices: ["Click to reveal!"],
+            question: " It’s the end of your shift!",
+            choices: ["Click to reveal your personality type!"],
             weights: [
                 //{extrovertScore: 0, introvertScore: 0 }, // laceholder
                 //{introvertScore: 0, extrovertScore: 0}, //Placeholder
@@ -153,19 +155,19 @@ function displayQuiz() {
 
     function displayQuestionImage(questionIndex) {
         const imageURLs = [
-            "qn1graphic.png",
-            "qn2graphic.png",
-            "qn3graphic.png",
-            "qn4graphic.png",
-            "qn5graphic.png",
-            "qn6graphic.png",
-            "qn7graphic.png",
-            "qn8graphic.png",
-            "qn9graphic.png",
-            "qn10graphic.png",
-            "qn11graphic.png",
-            "qn12graphic.png",
-            "lastloadingpage.png",
+            "1 (2).png",
+            "2 (6).png",
+            "3 (4).png",
+            "4.png",
+            "5.png",
+            "6.png",
+            "7.png",
+            "8.png",
+            "9.png",
+            "10.png",
+            "11.png",
+            "12.png",
+            "SHRI.gif",
         ];
         const questionImageElement = document.getElementById('question-image');
         questionImageElement.src = imageURLs[questionIndex];
@@ -278,7 +280,7 @@ function displayQuiz() {
         const questionElement = document.getElementById('question');
         const choiceContainers = document.getElementById('choices');
         const quizContainer = document.getElementById('quiz');
-        const thumbnailImage = document.querySelector('img[src="caroubuyer.png"]');
+        const thumbnailImage = document.querySelector('img[src="COVER PAGE.png"]');
         questionElement.remove();
         choiceContainers.remove();
         quizContainer.remove();
@@ -292,14 +294,13 @@ function displayQuiz() {
     //Function to calculate MBTI type and return image URL 
         function getMBTIImageUrl(mbtiTypeString) {
             const MBTIImageUrls = {
-                "ACE": "resultsangel.jpg",
-                "ACF": "resultsdetective.jpg", 
-                "ADE": "resultscat.jpg",
-                "ADF": "resultsangel.jpg",
-                "BCE": "resultsdetective.jpg",
-                "BCF": "resultsspider.jpg",
-                "BDE": "resultscheapskate.jpg",
-                "BDF": "resultsthrifter2.jpg",
+                "ACE": "BUBBLY.jpg",
+                "ACF": "FIERCE.jpg", 
+                "ADE": "GBB.jpg",
+                "ADF": "HYPE.jpg",
+                "BCE": "FIERCE.jpg",
+                "BCF": "INNOVATIVE.jpg",
+                "BDE": "BUBBLY.jpg",
             };
             return MBTIImageUrls[mbtiTypeString] || ""
         }
@@ -358,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     backButton.addEventListener('click', function() {
         // Redirect to the home page or perform any other action you want
-        window.location.href = 'https://k3ttuu.github.io/carou/'; // Replace 'home.html' with the actual URL of your home page
+        window.location.href = 'https://k3ttuu.github.io/hackathon/'; // Replace 'home.html' with the actual URL of your home page
     });
 });
 
