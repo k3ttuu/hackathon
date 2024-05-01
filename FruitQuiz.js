@@ -334,21 +334,21 @@ function displayQuiz() {
 displayQuiz();
 
 // Share quiz button click event handler
-document.addEventListener('DOMContentLoaded', function() {
-    const shareButton = document.querySelector('.share-button');
+// document.addEventListener('DOMContentLoaded', function() {
+//    const shareButton = document.querySelector('.share-button');
+//
+//    shareButton.addEventListener('click', function() {
+//        const url = window.location.href;
 
-    shareButton.addEventListener('click', function() {
-        const url = window.location.href;
-
-        navigator.clipboard.writeText(url)
-            .then(() => {
-                alert('Quiz URL copied to clipboard!');
-            })
-            .catch(err => {
-                console.error('Failed to copy URL: ', err);
-            });
-    });
-});
+//        navigator.clipboard.writeText(url)
+//            .then(() => {
+//                alert('Quiz URL copied to clipboard!');
+//            })
+//            .catch(err => {
+//                console.error('Failed to copy URL: ', err);
+//            });
+//   });
+//});
 
 // Select the button element
 const backToHomeButton = document.getElementById('back-to-home');
